@@ -245,3 +245,29 @@ def player_stats(player_name):
                 return player
     # If no player is found, return None
     return None
+
+def average_rebounds_by_shoe_brand():
+    shoe_brands = {}
+# initialize an empty dict to store the shoe brands and rebounds
+    
+    for team in game.values():
+# iterate over each team
+        for player in team['players']:
+# iterate over each player in the team
+            shoe_brand = player['shoe_brand']
+            rebounds = player['rebounds_per_game']
+# get the player's shoe brand and rebounds
+
+            if shoe_brand in shoe_brands:
+                shoe_brands[shoe_brand].append(rebounds)
+# if shoe brand is already in the dict, append the rebounds
+            else:
+                shoe_brands[shoe_brand] = [rebounds]
+# else, add it with the rebounds as a list
+        
+    for shoe_brand, rebounds in shoe_brands.items():
+# iterate over each shoe brand in the dict
+        average_rebounds = sum(rebounds) / len(rebounds)
+# calculate the average rebounds
+        print(f'{shoe_brand}:  {average_rebounds:.2f}')
+# print the shoe brand and average rebounds (to 2 decimal points)
