@@ -271,3 +271,53 @@ def average_rebounds_by_shoe_brand():
 # calculate the average rebounds
         print(f'{shoe_brand}:  {average_rebounds:.2f}')
 # print the shoe brand and average rebounds (to 2 decimal points)
+
+# initialize global variables to store data
+max_points = 0
+player_name = ''
+jersey_numbers = []
+max_length = 0
+
+def player_with_most_career_points():
+# function to find the player with the most career points
+    for team in game.values():
+# iterate over each team
+        for player in team['players']:
+# iterate over each player in the team
+            if player['career_points'] > max_points:
+                max_points = player['career_points']
+                player_name = player['name']
+# if player's career points are greater than the current max,
+#  update the max and player name
+    return player_name
+# return the player with the most career points
+
+def common_jersey_numbers():
+# function to find the common jersey numbers
+    for team in game.values():
+# iterate over each team
+        for player in team['players']:
+# iterate over each player in the team
+            jersey_numbers.append(player['number'])
+# add the player's jersey number to the list
+
+            common_numbers = [number for number in jersey_numbers
+                            if jersey_numbers.count(number) > 1]
+# find the jersey that appears more than once
+            
+            return list(set(common_numbers))
+# return the common jersey number
+
+def player_with_longest_name():
+# function to find the player with the longest name
+    for team in game.values():
+# iterate over each team
+        for player in team['players']:
+# iterate over each player in the team
+            if len(player['name']) > max_length:
+                max_length = len(player['name'])
+                player_name = player['name']
+# if player's name is longer than the current longest,
+#  update the longest and player name
+    return player_name
+# return the name of the player witht the longest name
