@@ -182,3 +182,66 @@ def game_dict():
             ]
         }
     }
+# Define the game dictionary
+game = game_dict()
+
+# Function to get the number of points per game for a player
+def num_points_per_game(player_name):
+    # Iterate over each team
+    for team in game.values():
+        # Iterate over each player in the team
+        for player in team['players']:
+            # If the player's name matches the input, return their points per game
+            if player['name'] == player_name:
+                return player['points_per_game']
+    # If no player is found, return None
+    return None
+
+# Function to get the age of a player
+def player_age(player_name):
+    # Iterate over each team
+    for team in game.values():
+        # Iterate over each player in the team
+        for player in team['players']:
+            # If the player's name matches the input, return their age
+            if player['name'] == player_name:
+                return player['age']
+    # If no player is found, return None
+    return None
+
+# Function to get the colors of a team
+def team_colors(team_name):
+    # Iterate over each team
+    for team in game.values():
+        # If the team's name matches the input, return their colors
+        if team['team_name'] == team_name:
+            return team['colors']
+    # If no team is found, return None
+    return None
+
+# Function to get the names of all teams
+def team_names():
+    # Return a list of all team names
+    return [team['team_name'] for team in game.values()]
+
+# Function to get the jersey numbers of a team's players
+def player_numbers(team_name):
+    # Iterate over each team
+    for team in game.values():
+        # If the team's name matches the input, return a list of their players' jersey numbers
+        if team['team_name'] == team_name:
+            return [player['number'] for player in team['players']]
+    # If no team is found, return None
+    return None
+
+# Function to get the stats of a player
+def player_stats(player_name):
+    # Iterate over each team
+    for team in game.values():
+        # Iterate over each player in the team
+        for player in team['players']:
+            # If the player's name matches the input, return their stats
+            if player['name'] == player_name:
+                return player
+    # If no player is found, return None
+    return None
